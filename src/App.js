@@ -3,17 +3,17 @@ import './App.css';
 import ProductList from './components/ProductList';
 import ProductDetails from './components/ProductDetails';
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route
+    HashRouter,
+    BrowserRouter as Router,
+    Route
 } from "react-router-dom";
 
 function App() {
   return (
-    <Router>
+    <HashRouter>
         <Route exact path="/prod/:id" component={ProductDetails} />
         <Route exact path="/ecommerce" component={ProductList} />
-    </Router>
+    </HashRouter>
   );
 }
 
