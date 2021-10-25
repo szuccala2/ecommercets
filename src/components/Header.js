@@ -1,0 +1,83 @@
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
+import TextField from '@mui/material/TextField';
+
+function ToggleButtons({ selected, setSelected }) {
+    return (
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          '& > *': {
+            m: 2,
+          },
+        }}
+      >
+        <ButtonGroup aria-label="outlined button group">
+          <Button sx={{ boxShadow: 2 }} variant={selected=="in" ? "contained" : "outlined"}
+            onClick={()=>{if(selected=="in") {
+              setSelected("none");
+            } else {
+              setSelected("in");
+            }}} >
+            IN STOCK</Button>
+          <Button sx={{ boxShadow: 2 }} variant={selected=="out" ? "contained" : "outlined"}
+            onClick={()=>{if(selected=="out") {
+              setSelected("none");
+            } else {
+              setSelected("out");
+            }}} >
+            OUT OF STOCK</Button>
+        </ButtonGroup>
+      </Box>
+    );
+}
+  
+function SearchBox({ searchTerm, setSearchTerm }) {
+    return (
+      <Box
+        component="form"
+        sx={{
+          '& > :not(style)': { 
+            m: 1
+          },
+          display: "flex"
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        <Grid container direction="row" spacing={{xs: 1}}>
+          <Grid item xs={11} md={8}>
+            <TextField label="search" variant="outlined" value={searchTerm}
+              onChange={(e) => {setSearchTerm(e.target.value)}}
+              sx={{ width: "20vw" }} />
+          </Grid>
+          <Grid item xs={1} md={4}>
+            <Button variant="contained" onClick={()=>{setSearchTerm("")}}>
+              RESET</Button>
+          </Grid>
+        </Grid>
+      </Box>
+    );
+}
+  
+export default  function Header({ selected, setSelected, searchTerm, setSearchTerm }) {
+    return (
+        <Box sx={{ height: 80, borderBottom: "1px solid black" }}>
+            <Grid container direction="row">
+                <Grid item xs={4}>
+                    <img src="https://via.placeholder.com/150x80" />
+                </Grid>
+                <Grid item xs={5} md={4}>
+                    <ToggleButtons selected={selected} setSelected={setSelected} />
+                </Grid>
+                <Grid item xs={3} md={4}>
+                    <SearchBox setSearchTerm={setSearchTerm} searchTerm={searchTerm} />
+                </Grid>
+            </Grid>
+        </Box>
+    );
+}
