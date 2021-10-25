@@ -10,10 +10,10 @@ import {
 
 function App() {
   return (
-    <HashRouter>
+    <Router>
         <Route exact path="/prod/:id" component={ProductDetails} />
         <Route exact path="/ecommerce" component={ProductList} />
-    </HashRouter>
+    </Router>
   );
 }
 
