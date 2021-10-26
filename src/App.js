@@ -14,7 +14,7 @@ function App() {
   return (
     <Switch>
       <Route path="/prod/:id" component={ProductDetails} />
-      <Route path="/ecommerce" component={Prova} />
+      <Route path="/" component={Prova} />
     </Switch>
   );
 }
