@@ -4,16 +4,17 @@ import ProductList from './components/ProductList';
 import ProductDetails from './components/ProductDetails';
 import {
   BrowserRouter as Router,
+  HashRouter,
   Switch,
   Route
 } from "react-router-dom";
 
 function App() {
   return (
-    <Router>
-        <Route exact path="/prod/:id" component={ProductDetails} />
-        <Route exact path="/ecommerce" component={ProductList} />
-    </Router>
+    <Switch>
+      <Route exact path="/ecommerce" component={ProductList} />
+      <Route exact path="/prod/:id" component={ProductDetails} />
+    </Switch>
   );
 }
 
