@@ -4,7 +4,6 @@ import ProductList from './components/ProductList';
 import Prova from './components/Prova';
 import ProductDetails from './components/ProductDetails';
 import {
-  BrowserRouter as Router,
   HashRouter,
   Switch,
   Route
@@ -13,15 +12,8 @@ import {
 function App() {
   return (
     <Switch>
-      <Route exact path="/">
-        <ProductList />
-      </Route>
-      <Route path="/prod/:id">
-        <ProductDetails />
-      </Route>
-      <Route path="/prova">
-        <Prova />
-      </Route>
+      <Route path="/prod/:id" component={ProductDetails} />
+      <Route exact path="/" component={ProductList} />
     </Switch>
   );
 }

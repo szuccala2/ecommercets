@@ -6,6 +6,9 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
+import { createBrowserHistory } from 'history';
+
+const history = createBrowserHistory();
 
 function BasicChips() {
     return (
@@ -18,7 +21,9 @@ function BasicChips() {
 export default function ActionAreaCard({ prod, det }) {
     return (
         <Card sx={det ? { maxWidth: 500 } : {}} >
-            <CardActionArea href={det ? "/ecommerce" : `/ecommerce/prod/${prod.UPC}`}>
+            <CardActionArea
+                onClick={()=>{
+                    det ? history.push(`/`) : history.push(`/prod/${prod.UPC}`)}}>
                 <CardMedia
                 component="img"
                 height="auto"
