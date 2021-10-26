@@ -13,8 +13,8 @@ import {
 function App() {
   return (
     <Switch>
-      <Route exact path="/ecommerce/prod/:id" component={ProductDetails} />
-      <Route exact path="/ecommerce" component={ProductList} />
+      <Route path="/prod/:id" component={ProductDetails} />
+      <Route path="/" component={ProductList} />
     </Switch>
   );
 }
