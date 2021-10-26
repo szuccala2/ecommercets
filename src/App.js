@@ -13,10 +13,10 @@ import {
 function App() {
   return (
     <Switch>
-      <Route exact path="/prod/:id">
+      <Route path="/prod/:id">
         <ProductDetails />
       </Route>
-      <Route path="/prova">
+      <Route exact path="/prova">
         <Prova />
       </Route>
     </Switch>
