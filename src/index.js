@@ -10,7 +10,7 @@ import {
 
 ReactDOM.render(
   <React.StrictMode>
-    <HashRouter basename='/ecommerce'>
+    <HashRouter basename='/'>
       <App />
     </HashRouter>
   </React.StrictMode>,
