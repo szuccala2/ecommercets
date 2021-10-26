@@ -13,7 +13,7 @@ import {
 function App() {
   return (
     <Switch>
-      <Route path="/prod/:id">
+      <Route exact path="/prod/:id">
         <ProductDetails />
       </Route>
       <Route path="/prova">
