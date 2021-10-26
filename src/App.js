@@ -19,6 +19,9 @@ function App() {
       <Route path="/prod/:id">
         <ProductDetails />
       </Route>
+      <Route path="/prova">
+        <Prova />
+      </Route>
     </Switch>
   );
 }
