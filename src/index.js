@@ -10,9 +10,9 @@ import {
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router basename='/ecommerce'>
+    <HashRouter basename='/ecommerce'>
       <App />
-    </Router>
+    </HashRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
