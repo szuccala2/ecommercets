@@ -17,7 +17,7 @@ function BasicChips() {
 
 export default function ActionAreaCard({ prod, det }) {
     return (
-        <Card sx={det ? {margin: 2, maxWidth: 500} : {}} >
+        <Card sx={det ? { maxWidth: 500 } : {}} >
             <CardActionArea href={det ? "/ecommerce" : `/prod/${prod.UPC}`}>
                 <CardMedia
                 component="img"

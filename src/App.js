@@ -3,9 +3,9 @@ import './App.css';
 import ProductList from './components/ProductList';
 import ProductDetails from './components/ProductDetails';
 import {
-    HashRouter,
-    BrowserRouter as Router,
-    Route
+  BrowserRouter as Router,
+  Switch,
+  Route
 } from "react-router-dom";
 
 function App() {
