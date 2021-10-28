@@ -1,4 +1,19 @@
-export const prodotti =
+export type ProductType = {
+    "UPC": string,
+    "name": string,
+    "price": {
+        "current": {
+            "value": number
+        }
+        "currency": string
+    },
+    "availability": {
+        "stock": number
+    },
+    "variants": any[]
+}
+
+export const prodotti : ProductType[] =
 [
     {
       "UPC": "1",

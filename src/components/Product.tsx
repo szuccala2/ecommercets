@@ -7,8 +7,9 @@ import { CardActionArea } from '@mui/material';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import { useHistory } from "react-router-dom";
+import { ProductType } from '../model/Product'
 
-function BasicChips() {
+const BasicChips: React.FC = () => {
     return (
         <Stack direction="row" spacing={1}>
             <Chip label="In stock" />
@@ -16,10 +17,15 @@ function BasicChips() {
     );
 }
 
-export default function ActionAreaCard({ prod, det }) {
+type Props = {
+    prod: ProductType | undefined,
+    det: boolean
+}
+
+const Product: React.FC<Props> = ({ prod, det }) => {
     var history = useHistory();
-    return (
-        <Card sx={det ? { maxWidth: 500 } : {}} >
+    return prod ? (
+        <Card sx={det ? { maxWidth: 450 } : {}} >
             <CardActionArea
                     onClick={()=>{det ? history.push('/') : history.push(`/prod/${prod.UPC}`)}}>
                 <CardMedia
@@ -39,5 +45,7 @@ export default function ActionAreaCard({ prod, det }) {
                 </CardContent>
             </CardActionArea>
         </Card>
-    );
+    ) : null;
 }
+
+export default Product;

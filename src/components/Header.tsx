@@ -5,7 +5,17 @@ import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import TextField from '@mui/material/TextField';
 
-function ToggleButtons({ selected, setSelected }) {
+type ToggleProps = {
+  selected: string,
+  setSelected: (selected: SelectedType) => void,
+}
+
+type SearchProps = {
+  searchTerm: string,
+  setSearchTerm: (searchTerm: string) => void,
+}
+
+const ToggleButtons: React.FC<ToggleProps> = ({ selected, setSelected }) => {
   return (
     <Box
       sx={{
@@ -17,15 +27,15 @@ function ToggleButtons({ selected, setSelected }) {
       }}
     >
       <ButtonGroup aria-label="outlined button group">
-        <Button sx={{ boxShadow: 2 }} variant={selected=="in" ? "contained" : "outlined"}
-          onClick={()=>{if(selected=="in") {
+        <Button sx={{ boxShadow: 2 }} variant={selected==="in" ? "contained" : "outlined"}
+          onClick={()=>{if(selected==="in") {
             setSelected("none");
           } else {
             setSelected("in");
           }}} >
           IN STOCK</Button>
-        <Button sx={{ boxShadow: 2 }} variant={selected=="out" ? "contained" : "outlined"}
-          onClick={()=>{if(selected=="out") {
+        <Button sx={{ boxShadow: 2 }} variant={selected==="out" ? "contained" : "outlined"}
+          onClick={()=>{if(selected==="out") {
             setSelected("none");
           } else {
             setSelected("out");
@@ -36,7 +46,7 @@ function ToggleButtons({ selected, setSelected }) {
   );
 }
   
-function SearchBox({ searchTerm, setSearchTerm }) {
+const SearchBox: React.FC<SearchProps> = ({ searchTerm, setSearchTerm }) => {
   return (
     <Box
       component="form"
@@ -63,13 +73,22 @@ function SearchBox({ searchTerm, setSearchTerm }) {
     </Box>
   );
 }
-  
-export default  function Header({ selected, setSelected, searchTerm, setSearchTerm }) {
+
+type SelectedType = "none" | "in" | "out";
+
+type Props = {
+  selected: string,
+  setSelected: (selected: SelectedType) => void,
+  searchTerm: string,
+  setSearchTerm: (searchTerm: string) => void
+}
+
+const Header: React.FC<Props> = ({ selected, setSelected, searchTerm, setSearchTerm }) => {
   return (
     <Box sx={{ height: 80, borderBottom: "1px solid black" }}>
       <Grid container direction="row">
         <Grid item xs={4}>
-            <img src="https://via.placeholder.com/150x80" />
+            <img src="https://via.placeholder.com/150x80" alt="logo" />
           </Grid>
           <Grid item xs={5} md={4}>
             <ToggleButtons selected={selected} setSelected={setSelected} />
@@ -81,3 +100,5 @@ export default  function Header({ selected, setSelected, searchTerm, setSearchTe
     </Box>
   );
 }
+
+export default Header;
