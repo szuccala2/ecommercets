@@ -9,7 +9,7 @@ import {
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router basename='/ecommerce'>
+    <Router basename='/ecommercets'>
       <App />
     </Router>
   </React.StrictMode>,
