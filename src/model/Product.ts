@@ -10,7 +10,7 @@ export type ProductType = {
     "availability": {
         "stock": number
     },
-    "variants": any[]
+    "variants": any
 }
 
 export const prodotti : ProductType[] =

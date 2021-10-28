@@ -18,7 +18,7 @@ const BasicChips: React.FC = () => {
 }
 
 type Props = {
-    prod: ProductType | undefined,
+    prod: ProductType,
     det: boolean
 }
 

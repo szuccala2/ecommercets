@@ -5,7 +5,8 @@ import { prodotti } from '../model/Product';
 
 const ProductDetails: React.FC = () => {
     const { id } = useParams<{ id : string }>();
-    return <Product prod={prodotti.find(prod=>prod.UPC===id)} det={true} />;
+    const prod = prodotti.find(prod=>prod.UPC===id);
+    return prod ? <Product prod={prod} det={true} /> : null;
 }
 
 export default ProductDetails;

@@ -7,12 +7,12 @@ import TextField from '@mui/material/TextField';
 
 type ToggleProps = {
   selected: string,
-  setSelected: (selected: SelectedType) => void,
+  setSelected: (selected: SelectedType) => void
 }
 
 type SearchProps = {
   searchTerm: string,
-  setSearchTerm: (searchTerm: string) => void,
+  setSearchTerm: (searchTerm: string) => void
 }
 
 const ToggleButtons: React.FC<ToggleProps> = ({ selected, setSelected }) => {
